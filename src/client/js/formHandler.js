@@ -11,6 +11,16 @@ function handleSubmit(event) {
     .then(function(res) {
         document.getElementById('results').innerHTML = res.message
     })
+
+    //call external API to get weather information
+    const url = 'https://api.openweathermap.org/data/2.5/weather?q=Campinas,br&units=imperial&APPID=' + formText;
+    fetch(url)
+    .then(res => res.json())
+    .then(weatherData => {
+        const msg = `Temperature in Campinas now: ${Math.round(weatherData.main.temp)}F`;
+        document.getElementById('weather').innerHTML = msg;
+
+    })
 }
 
 export { handleSubmit }
