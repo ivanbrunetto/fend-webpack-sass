@@ -11,6 +11,7 @@ module.exports = {
     output: {
         libraryTarget: 'var',
         library: 'Client',
+        clean: true,
     },
     optimization: {
         minimizer: [
